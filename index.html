@@ -4,259 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- META TAGS POUR GOOGLE (SEO) -->
-    <title>Heures Mondiales - Heure en temps réel dans tous les pays du monde</title>
-    <meta name="description" content="Consultez l'heure actuelle dans tous les pays du monde en temps réel. Horloge mondiale avec recherche par pays, fuseaux horaires, et mise à jour automatique. Gratuit et sans publicité.">
-    <meta name="keywords" content="heure mondiale, heure pays, fuseau horaire, horloge mondiale, temps réel, heure internationale, quel heure il est, horloge temps réel, tous les pays, heure locale">
-    <meta name="author" content="Horloge Mondiale">
+    <title>Heure Mondiale Exacte - Horloge Temps Réel Tous les Pays</title>
+    <meta name="description" content="Quel heure est-il ? Découvrez l'heure exacte en temps réel dans tous les pays du monde. Horloge mondiale gratuite, précise et synchronisée via IANA.">
+    <meta name="keywords" content="heure mondiale, heure exacte, fuseau horaire, horloge mondiale, temps réel, heure internationale, tous les pays">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="French">
-    <meta name="revisit-after" content="1 day">
-    
-    <!-- Open Graph pour les réseaux sociaux -->
-    <meta property="og:title" content="Heures Mondiales - Tous les pays en temps réel">
-    <meta property="og:description" content="Découvrez l'heure actuelle dans tous les pays du monde. Mise à jour automatique chaque seconde.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="fr_FR">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Heures Mondiales">
-    <meta name="twitter:description" content="L'heure dans tous les pays du monde en temps réel">
 
-    <!-- Google search console -->
-    <meta name="google-site-verification" content="YwDC33Nz4aTPZUJ-Ie7iebk-NcbtyHv2pwnZFfzzGFc" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Heures Mondiales",
+      "description": "Heure exacte en temps réel pour tous les pays du monde.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All"
+    }
+    </script>
 
-    <!-- Canonical URL (à remplacer par votre vrai domaine) -->
-    <link rel="canonical" href="https://votrepseudo.github.io">
-    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-gradient: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* Section Heure Locale de l'utilisateur (EN ÉVIDENCE) */
-        .local-time-section {
-            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 40px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.01); }
-            100% { transform: scale(1); }
-        }
-
-        .local-label {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 10px;
-        }
-
-        .local-time {
-            font-size: 4rem;
-            font-weight: bold;
-            color: white;
-            font-family: 'Courier New', monospace;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            letter-spacing: 5px;
-        }
-
-        .local-date {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.95);
-            margin-top: 10px;
-        }
-
-        .local-location {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.85);
-            margin-top: 8px;
-        }
-
-        .local-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            text-align: center;
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .subtitle {
-            text-align: center;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .last-update {
-            text-align: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-        }
-
-        .search-box {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .search-box input {
-            width: 350px;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            outline: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-        }
-
-        .search-box input:focus {
-            width: 400px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        }
-
-        .stats {
-            text-align: center;
-            color: white;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            background: rgba(0,0,0,0.2);
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            width: fit-content;
-        }
-
-        .time-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .time-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-align: center;
-        }
-
-        .time-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        /* INVERSION : Le pays est maintenant en premier et plus grand */
-        .country-name {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .city-name {
-            color: #667eea;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-
-        .current-time {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: #764ba2;
-            font-family: 'Courier New', monospace;
-        }
-
-        .current-date {
-            color: #999;
-            font-size: 0.75rem;
-            margin-top: 10px;
-        }
-
-        .timezone-offset {
-            display: inline-block;
-            background: #f0f0f0;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.7rem;
-            color: #666;
-            margin-top: 10px;
-        }
-
-        .flag {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .no-results {
-            text-align: center;
-            color: white;
-            font-size: 1.2rem;
-            padding: 50px;
-        }
-
-        /* Footer SEO */
-        .footer-seo {
-            margin-top: 50px;
-            padding: 20px;
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.8rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .footer-seo a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-        }
-
-        .footer-seo a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 1.8rem; }
-            .local-time { font-size: 2.5rem; }
-            .current-time { font-size: 1.5rem; }
-            .time-grid { grid-template-columns: 1fr; }
-            .search-box input { width: 90%; }
-            .search-box input:focus { width: 90%; }
-            .country-name { font-size: 1.2rem; }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--primary-gradient); min-height: 100vh; padding: 20px; color: #333; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .local-time-section { background: var(--accent-gradient); border-radius: 20px; padding: 30px; margin-bottom: 40px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.2); color: white; }
+        .local-time { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: bold; font-family: monospace; letter-spacing: 5px; margin: 10px 0; }
+        h1 { text-align: center; color: white; font-size: 2.5rem; margin-bottom: 5px; }
+        .subtitle { text-align: center; color: rgba(255,255,255,0.9); margin-bottom: 30px; }
+        .search-container { text-align: center; margin-bottom: 30px; }
+        #searchInput { width: 100%; max-width: 450px; padding: 15px 25px; border: none; border-radius: 30px; font-size: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); outline: none; }
+        .stats { color: white; background: rgba(0,0,0,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; display: inline-block; margin-bottom: 20px; }
+        .time-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .time-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.2s; text-align: center; }
+        .time-card:hover { transform: translateY(-5px); }
+        .flag { font-size: 2.5rem; margin-bottom: 10px; }
+        .country-name { font-size: 1.3rem; font-weight: bold; }
+        .city-name { color: #667eea; font-size: 0.9rem; font-weight: 600; margin-bottom: 15px; }
+        .current-time { font-size: 2rem; font-weight: bold; color: #764ba2; font-family: monospace; }
+        .current-date { color: #888; font-size: 0.8rem; margin-top: 10px; }
+        .timezone-offset { display: inline-block; background: #f0f0f0; padding: 4px 10px; border-radius: 15px; font-size: 0.7rem; color: #666; margin-top: 10px; }
+        .info-content { max-width: 900px; margin: 50px auto; color: white; line-height: 1.6; }
+        .footer-seo { margin-top: 50px; padding: 20px; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.2); }
     </style>
+
+	<!-- Google search console -->
+  	  <meta name="google-site-verification" content="YwDC33Nz4aTPZUJ-Ie7iebk-NcbtyHv2pwnZFfzzGFc" />
+
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BEC27N8KE8"></script>
     <script>
@@ -266,57 +61,56 @@
     
       gtag('config', 'G-BEC27N8KE8');
     </script>
+
+
+
 </head>
 <body>
-    <div class="container">
-        
-        <!-- SECTION HEURE LOCALE EN ÉVIDENCE -->
-        <div class="local-time-section">
-            <div class="local-icon">📍</div>
-            <div class="local-label">VOTRE HEURE LOCALE</div>
-            <div class="local-time" id="userTime">--:--:--</div>
-            <div class="local-date" id="userDate">--</div>
-            <div class="local-location" id="userLocation">Détection en cours...</div>
-        </div>
 
-        <h1>🕒 Heures Mondiales</h1>
-        <p class="subtitle">Tous les pays du monde en temps réel</p>
-        
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 Rechercher un pays ou une ville...">
-        </div>
-        
-        <div style="text-align: center;">
-            <div class="stats" id="stats"></div>
-        </div>
-        <div class="last-update" id="lastUpdate"></div>
-        
-        <div class="time-grid" id="timeGrid"></div>
-        
-        <!-- Footer pour le référencement -->
-        <div class="footer-seo">
-            <p>🌍 Heures Mondiales - Horloge en temps réel dans tous les pays | Mise à jour automatique chaque seconde</p>
-            <p>📅 Données basées sur les fuseaux horaires IANA | <a href="#">À propos</a> | <a href="#">Contact</a></p>
-            <p>🏷️ Tags: heure mondiale, heure par pays, fuseau horaire, horloge internationale, quel heure est-il</p>
-        </div>
+    <div class="container">
+        <header>
+            <div class="local-time-section">
+                <p style="text-transform:uppercase; letter-spacing:2px">Votre heure locale</p>
+                <div class="local-time" id="userTime">--:--:--</div>
+                <div class="local-date" id="userDate">--</div>
+                <div class="local-location" id="userLocation">Détection...</div>
+            </div>
+            <h1>🕒 Heures Mondiales</h1>
+            <p class="subtitle">Tous les pays du monde en temps réel</p>
+        </header>
+
+        <main>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="🔍 Rechercher un pays ou une ville..." aria-label="Rechercher">
+            </div>
+            <div style="text-align: center;"><div class="stats" id="stats">Chargement...</div></div>
+            <div class="time-grid" id="timeGrid"></div>
+
+            <section class="info-content">
+                <h2>L'heure exacte partout dans le monde</h2>
+                <p>Consultez l'heure locale et le fuseau horaire de tous les pays membres de l'ONU et plus encore. Notre système se base sur les données <strong>IANA</strong> pour garantir une précision absolue, incluant les changements d'heure saisonniers.</p>
+            </section>
+        </main>
+
+        <footer class="footer-seo">
+            <p>© 2026 Heures Mondiales - Liste exhaustive des 195 pays</p>
+        </footer>
     </div>
 
     <script>
-        // Liste complète des pays (195 pays) - avec inversion priorité pays
-        // REMPLACEMENT : Israël a été remplacé par Palestine
         const countries = [
             { country: "Afghanistan", city: "Kaboul", timezone: "Asia/Kabul", flag: "🇦🇫" },
-            { country: "Afrique du Sud", city: "Le Cap", timezone: "Africa/Johannesburg", flag: "🇿🇦" },
+            { country: "Afrique du Sud", city: "Pretoria", timezone: "Africa/Johannesburg", flag: "🇿🇦" },
             { country: "Albanie", city: "Tirana", timezone: "Europe/Tirane", flag: "🇦🇱" },
             { country: "Algérie", city: "Alger", timezone: "Africa/Algiers", flag: "🇩🇿" },
             { country: "Allemagne", city: "Berlin", timezone: "Europe/Berlin", flag: "🇩🇪" },
-            { country: "Andorre", city: "Andorre-la-Vieille", timezone: "Europe/Andorra", flag: "🇦🇩" },
+            { country: "Andorre", city: "Andorre", timezone: "Europe/Andorra", flag: "🇦🇩" },
             { country: "Angola", city: "Luanda", timezone: "Africa/Luanda", flag: "🇦🇴" },
-            { country: "Antigua-et-Barbuda", city: "Saint John's", timezone: "America/Antigua", flag: "🇦🇬" },
-            { country: "Arabie saoudite", city: "Riyad", timezone: "Asia/Riyadh", flag: "🇸🇦" },
+            { country: "Antigua-et-Barbuda", city: "St. John's", timezone: "America/Antigua", flag: "🇦🇬" },
+            { country: "Arabie Saoudite", city: "Riyad", timezone: "Asia/Riyadh", flag: "🇸🇦" },
             { country: "Argentine", city: "Buenos Aires", timezone: "America/Argentina/Buenos_Aires", flag: "🇦🇷" },
             { country: "Arménie", city: "Erevan", timezone: "Asia/Yerevan", flag: "🇦🇲" },
-            { country: "Australie", city: "Sydney", timezone: "Australia/Sydney", flag: "🇦🇺" },
+            { country: "Australie", city: "Canberra", timezone: "Australia/Sydney", flag: "🇦🇺" },
             { country: "Autriche", city: "Vienne", timezone: "Europe/Vienna", flag: "🇦🇹" },
             { country: "Azerbaïdjan", city: "Bakou", timezone: "Asia/Baku", flag: "🇦🇿" },
             { country: "Bahamas", city: "Nassau", timezone: "America/Nassau", flag: "🇧🇸" },
@@ -329,7 +123,7 @@
             { country: "Bhoutan", city: "Thimphou", timezone: "Asia/Thimphu", flag: "🇧🇹" },
             { country: "Biélorussie", city: "Minsk", timezone: "Europe/Minsk", flag: "🇧🇾" },
             { country: "Birmanie", city: "Naypyidaw", timezone: "Asia/Yangon", flag: "🇲🇲" },
-            { country: "Bolivie", city: "La Paz", timezone: "America/La_Paz", flag: "🇧🇴" },
+            { country: "Bolivie", city: "Sucre", timezone: "America/La_Paz", flag: "🇧🇴" },
             { country: "Bosnie-Herzégovine", city: "Sarajevo", timezone: "Europe/Sarajevo", flag: "🇧🇦" },
             { country: "Botswana", city: "Gaborone", timezone: "Africa/Gaborone", flag: "🇧🇼" },
             { country: "Brésil", city: "Brasilia", timezone: "America/Sao_Paulo", flag: "🇧🇷" },
@@ -339,15 +133,15 @@
             { country: "Burundi", city: "Gitega", timezone: "Africa/Bujumbura", flag: "🇧🇮" },
             { country: "Cambodge", city: "Phnom Penh", timezone: "Asia/Phnom_Penh", flag: "🇰🇭" },
             { country: "Cameroun", city: "Yaoundé", timezone: "Africa/Douala", flag: "🇨🇲" },
-            { country: "Canada", city: "Toronto", timezone: "America/Toronto", flag: "🇨🇦" },
+            { country: "Canada", city: "Ottawa", timezone: "America/Toronto", flag: "🇨🇦" },
             { country: "Cap-Vert", city: "Praia", timezone: "Atlantic/Cape_Verde", flag: "🇨🇻" },
-            { country: "Centrafrique", city: "Bangui", timezone: "Africa/Bangui", flag: "🇨🇫" },
             { country: "Chili", city: "Santiago", timezone: "America/Santiago", flag: "🇨🇱" },
             { country: "Chine", city: "Pékin", timezone: "Asia/Shanghai", flag: "🇨🇳" },
             { country: "Chypre", city: "Nicosie", timezone: "Asia/Nicosia", flag: "🇨🇾" },
             { country: "Colombie", city: "Bogota", timezone: "America/Bogota", flag: "🇨🇴" },
             { country: "Comores", city: "Moroni", timezone: "Indian/Comoro", flag: "🇰🇲" },
-            { country: "Congo", city: "Brazzaville", timezone: "Africa/Brazzaville", flag: "🇨🇬" },
+            { country: "Congo-Brazzaville", city: "Brazzaville", timezone: "Africa/Brazzaville", flag: "🇨🇬" },
+            { country: "Congo-Kinshasa", city: "Kinshasa", timezone: "Africa/Kinshasa", flag: "🇨🇩" },
             { country: "Corée du Nord", city: "Pyongyang", timezone: "Asia/Pyongyang", flag: "🇰🇵" },
             { country: "Corée du Sud", city: "Séoul", timezone: "Asia/Seoul", flag: "🇰🇷" },
             { country: "Costa Rica", city: "San José", timezone: "America/Costa_Rica", flag: "🇨🇷" },
@@ -358,13 +152,13 @@
             { country: "Djibouti", city: "Djibouti", timezone: "Africa/Djibouti", flag: "🇩🇯" },
             { country: "Dominique", city: "Roseau", timezone: "America/Dominica", flag: "🇩🇲" },
             { country: "Égypte", city: "Le Caire", timezone: "Africa/Cairo", flag: "🇪🇬" },
-            { country: "Émirats arabes unis", city: "Dubaï", timezone: "Asia/Dubai", flag: "🇦🇪" },
+            { country: "Émirats Arabes Unis", city: "Abou Dabi", timezone: "Asia/Dubai", flag: "🇦🇪" },
             { country: "Équateur", city: "Quito", timezone: "America/Guayaquil", flag: "🇪🇨" },
             { country: "Érythrée", city: "Asmara", timezone: "Africa/Asmara", flag: "🇪🇷" },
             { country: "Espagne", city: "Madrid", timezone: "Europe/Madrid", flag: "🇪🇸" },
             { country: "Estonie", city: "Tallinn", timezone: "Europe/Tallinn", flag: "🇪🇪" },
             { country: "Eswatini", city: "Mbabane", timezone: "Africa/Mbabane", flag: "🇸🇿" },
-            { country: "États-Unis", city: "New York", timezone: "America/New_York", flag: "🇺🇸" },
+            { country: "États-Unis", city: "Washington", timezone: "America/New_York", flag: "🇺🇸" },
             { country: "Éthiopie", city: "Addis-Abeba", timezone: "Africa/Addis_Ababa", flag: "🇪🇹" },
             { country: "Fidji", city: "Suva", timezone: "Pacific/Fiji", flag: "🇫🇯" },
             { country: "Finlande", city: "Helsinki", timezone: "Europe/Helsinki", flag: "🇫🇮" },
@@ -389,16 +183,14 @@
             { country: "Iran", city: "Téhéran", timezone: "Asia/Tehran", flag: "🇮🇷" },
             { country: "Irlande", city: "Dublin", timezone: "Europe/Dublin", flag: "🇮🇪" },
             { country: "Islande", city: "Reykjavik", timezone: "Atlantic/Reykjavik", flag: "🇮🇸" },
-            // ISRAËL REMPLACÉ PAR PALESTINE
-            { country: "Palestine", city: "Ramallah", timezone: "Asia/Hebron", flag: "🇵🇸" },
             { country: "Italie", city: "Rome", timezone: "Europe/Rome", flag: "🇮🇹" },
             { country: "Jamaïque", city: "Kingston", timezone: "America/Jamaica", flag: "🇯🇲" },
             { country: "Japon", city: "Tokyo", timezone: "Asia/Tokyo", flag: "🇯🇵" },
             { country: "Jordanie", city: "Amman", timezone: "Asia/Amman", flag: "🇯🇴" },
-            { country: "Kazakhstan", city: "Almaty", timezone: "Asia/Almaty", flag: "🇰🇿" },
+            { country: "Kazakhstan", city: "Astana", timezone: "Asia/Almaty", flag: "🇰🇿" },
             { country: "Kenya", city: "Nairobi", timezone: "Africa/Nairobi", flag: "🇰🇪" },
             { country: "Kirghizistan", city: "Bichkek", timezone: "Asia/Bishkek", flag: "🇰🇬" },
-            { country: "Kiribati", city: "Tarawa", timezone: "Pacific/Tarawa", flag: "🇰🇮" },
+            { country: "Kiribati", city: "Tarawa South", timezone: "Pacific/Tarawa", flag: "🇰🇮" },
             { country: "Koweït", city: "Koweït", timezone: "Asia/Kuwait", flag: "🇰🇼" },
             { country: "Laos", city: "Vientiane", timezone: "Asia/Vientiane", flag: "🇱🇦" },
             { country: "Lesotho", city: "Maseru", timezone: "Africa/Maseru", flag: "🇱🇸" },
@@ -416,12 +208,12 @@
             { country: "Maldives", city: "Malé", timezone: "Indian/Maldives", flag: "🇲🇻" },
             { country: "Mali", city: "Bamako", timezone: "Africa/Bamako", flag: "🇲🇱" },
             { country: "Malte", city: "La Valette", timezone: "Europe/Malta", flag: "🇲🇹" },
-            { country: "Maroc", city: "Casablanca", timezone: "Africa/Casablanca", flag: "🇲🇦" },
+            { country: "Maroc", city: "Rabat", timezone: "Africa/Casablanca", flag: "🇲🇦" },
             { country: "Maurice", city: "Port-Louis", timezone: "Indian/Mauritius", flag: "🇲🇺" },
             { country: "Mauritanie", city: "Nouakchott", timezone: "Africa/Nouakchott", flag: "🇲🇷" },
             { country: "Mexique", city: "Mexico", timezone: "America/Mexico_City", flag: "🇲🇽" },
             { country: "Micronésie", city: "Palikir", timezone: "Pacific/Chuuk", flag: "🇫🇲" },
-            { country: "Moldavie", city: "Chișinău", timezone: "Europe/Chisinau", flag: "🇲🇩" },
+            { country: "Moldavie", city: "Chisinau", timezone: "Europe/Chisinau", flag: "🇲🇩" },
             { country: "Monaco", city: "Monaco", timezone: "Europe/Monaco", flag: "🇲🇨" },
             { country: "Mongolie", city: "Oulan-Bator", timezone: "Asia/Ulaanbaatar", flag: "🇲🇳" },
             { country: "Monténégro", city: "Podgorica", timezone: "Europe/Podgorica", flag: "🇲🇪" },
@@ -431,14 +223,15 @@
             { country: "Népal", city: "Katmandou", timezone: "Asia/Kathmandu", flag: "🇳🇵" },
             { country: "Nicaragua", city: "Managua", timezone: "America/Managua", flag: "🇳🇮" },
             { country: "Niger", city: "Niamey", timezone: "Africa/Niamey", flag: "🇳🇪" },
-            { country: "Nigéria", city: "Lagos", timezone: "Africa/Lagos", flag: "🇳🇬" },
+            { country: "Nigéria", city: "Abuja", timezone: "Africa/Lagos", flag: "🇳🇬" },
             { country: "Norvège", city: "Oslo", timezone: "Europe/Oslo", flag: "🇳🇴" },
-            { country: "Nouvelle-Zélande", city: "Auckland", timezone: "Pacific/Auckland", flag: "🇳🇿" },
+            { country: "Nouvelle-Zélande", city: "Wellington", timezone: "Pacific/Auckland", flag: "🇳🇿" },
             { country: "Oman", city: "Mascate", timezone: "Asia/Muscat", flag: "🇴🇲" },
             { country: "Ouganda", city: "Kampala", timezone: "Africa/Kampala", flag: "🇺🇬" },
             { country: "Ouzbékistan", city: "Tachkent", timezone: "Asia/Tashkent", flag: "🇺🇿" },
-            { country: "Pakistan", city: "Karachi", timezone: "Asia/Karachi", flag: "🇵🇰" },
+            { country: "Pakistan", city: "Islamabad", timezone: "Asia/Karachi", flag: "🇵🇰" },
             { country: "Palaos", city: "Ngerulmud", timezone: "Pacific/Palau", flag: "🇵🇼" },
+            { country: "Palestine", city: "Ramallah", timezone: "Asia/Hebron", flag: "🇵🇸" },
             { country: "Panama", city: "Panama", timezone: "America/Panama", flag: "🇵🇦" },
             { country: "Papouasie-Nouvelle-Guinée", city: "Port Moresby", timezone: "Pacific/Port_Moresby", flag: "🇵🇬" },
             { country: "Paraguay", city: "Asuncion", timezone: "America/Asuncion", flag: "🇵🇾" },
@@ -448,18 +241,21 @@
             { country: "Pologne", city: "Varsovie", timezone: "Europe/Warsaw", flag: "🇵🇱" },
             { country: "Portugal", city: "Lisbonne", timezone: "Europe/Lisbon", flag: "🇵🇹" },
             { country: "Qatar", city: "Doha", timezone: "Asia/Qatar", flag: "🇶🇦" },
+            { country: "République Centrafricaine", city: "Bangui", timezone: "Africa/Bangui", flag: "🇨🇫" },
+            { country: "République Dominicaine", city: "Saint-Domingue", timezone: "America/Santo_Domingo", flag: "🇩🇴" },
+            { country: "République Tchèque", city: "Prague", timezone: "Europe/Prague", flag: "🇨🇿" },
             { country: "Roumanie", city: "Bucarest", timezone: "Europe/Bucharest", flag: "🇷🇴" },
             { country: "Royaume-Uni", city: "Londres", timezone: "Europe/London", flag: "🇬🇧" },
             { country: "Russie", city: "Moscou", timezone: "Europe/Moscow", flag: "🇷🇺" },
             { country: "Rwanda", city: "Kigali", timezone: "Africa/Kigali", flag: "🇷🇼" },
-            { country: "Saint-Christophe-et-Niévès", city: "Basseterre", timezone: "America/St_Kitts", flag: "🇰🇳" },
+            { country: "Saint-Kitts-et-Nevis", city: "Basseterre", timezone: "America/St_Kitts", flag: "🇰🇳" },
             { country: "Sainte-Lucie", city: "Castries", timezone: "America/St_Lucia", flag: "🇱🇨" },
             { country: "Saint-Marin", city: "Saint-Marin", timezone: "Europe/San_Marino", flag: "🇸🇲" },
             { country: "Saint-Vincent-et-les-Grenadines", city: "Kingstown", timezone: "America/St_Vincent", flag: "🇻🇨" },
             { country: "Salomon", city: "Honiara", timezone: "Pacific/Guadalcanal", flag: "🇸🇧" },
             { country: "Salvador", city: "San Salvador", timezone: "America/El_Salvador", flag: "🇸🇻" },
             { country: "Samoa", city: "Apia", timezone: "Pacific/Apia", flag: "🇼🇸" },
-            { country: "Sao Tomé-et-Principe", city: "São Tomé", timezone: "Africa/Sao_Tome", flag: "🇸🇹" },
+            { country: "Sao Tomé-et-Principe", city: "Sao Tomé", timezone: "Africa/Sao_Tome", flag: "🇸🇹" },
             { country: "Sénégal", city: "Dakar", timezone: "Africa/Dakar", flag: "🇸🇳" },
             { country: "Serbie", city: "Belgrade", timezone: "Europe/Belgrade", flag: "🇷🇸" },
             { country: "Seychelles", city: "Victoria", timezone: "Indian/Mahe", flag: "🇸🇨" },
@@ -477,18 +273,17 @@
             { country: "Syrie", city: "Damas", timezone: "Asia/Damascus", flag: "🇸🇾" },
             { country: "Tadjikistan", city: "Douchanbé", timezone: "Asia/Dushanbe", flag: "🇹🇯" },
             { country: "Tanzanie", city: "Dodoma", timezone: "Africa/Dar_es_Salaam", flag: "🇹🇿" },
-            { country: "Tchad", city: "N'Djaména", timezone: "Africa/Ndjamena", flag: "🇹🇩" },
-            { country: "Tchéquie", city: "Prague", timezone: "Europe/Prague", flag: "🇨🇿" },
+            { country: "Tchad", city: "N'Djamena", timezone: "Africa/Ndjamena", flag: "🇹🇩" },
             { country: "Thaïlande", city: "Bangkok", timezone: "Asia/Bangkok", flag: "🇹🇭" },
-            { country: "Timor oriental", city: "Dili", timezone: "Asia/Dili", flag: "🇹🇱" },
+            { country: "Timor Oriental", city: "Dili", timezone: "Asia/Dili", flag: "🇹🇱" },
             { country: "Togo", city: "Lomé", timezone: "Africa/Lome", flag: "🇹🇬" },
             { country: "Tonga", city: "Nuku'alofa", timezone: "Pacific/Tongatapu", flag: "🇹🇴" },
             { country: "Trinité-et-Tobago", city: "Port-d'Espagne", timezone: "America/Port_of_Spain", flag: "🇹🇹" },
             { country: "Tunisie", city: "Tunis", timezone: "Africa/Tunis", flag: "🇹🇳" },
             { country: "Turkménistan", city: "Achgabat", timezone: "Asia/Ashgabat", flag: "🇹🇲" },
-            { country: "Turquie", city: "Istanbul", timezone: "Europe/Istanbul", flag: "🇹🇷" },
+            { country: "Turquie", city: "Ankara", timezone: "Europe/Istanbul", flag: "🇹🇷" },
             { country: "Tuvalu", city: "Funafuti", timezone: "Pacific/Funafuti", flag: "🇹🇻" },
-            { country: "Ukraine", city: "Kyiv", timezone: "Europe/Kyiv", flag: "🇺🇦" },
+            { country: "Ukraine", city: "Kiev", timezone: "Europe/Kyiv", flag: "🇺🇦" },
             { country: "Uruguay", city: "Montevideo", timezone: "America/Montevideo", flag: "🇺🇾" },
             { country: "Vanuatu", city: "Port-Vila", timezone: "Pacific/Efate", flag: "🇻🇺" },
             { country: "Vatican", city: "Vatican", timezone: "Europe/Vatican", flag: "🇻🇦" },
@@ -500,144 +295,52 @@
         ];
 
         let filteredCountries = [...countries];
+        const grid = document.getElementById('timeGrid');
+        const stats = document.getElementById('stats');
 
-        // Fonction pour obtenir le fuseau horaire de l'utilisateur
-        function getUserTimezone() {
-            return Intl.DateTimeFormat().resolvedOptions().timeZone;
+        function initGrid() {
+            grid.innerHTML = filteredCountries.length === 0 ? '<div style="color:white; grid-column:1/-1; padding:50px">Aucun résultat</div>' : 
+            filteredCountries.map(c => `
+                <div class="time-card">
+                    <div class="flag">${c.flag}</div>
+                    <div class="country-name">${c.country}</div>
+                    <div class="city-name">${c.city}</div>
+                    <div class="current-time" data-tz="${c.timezone}">--:--:--</div>
+                    <div class="current-date" data-tz="${c.timezone}">--</div>
+                    <div class="timezone-offset">${getOffset(c.timezone)}</div>
+                </div>
+            `).join('');
+            stats.textContent = `${filteredCountries.length} pays affichés`;
         }
 
-        // Mise à jour de l'heure locale de l'utilisateur
-        function updateUserLocalTime() {
+        function updateClocks() {
             const now = new Date();
-            const userTimezone = getUserTimezone();
+            document.getElementById('userTime').textContent = now.toLocaleTimeString('fr-FR');
+            document.getElementById('userDate').textContent = now.toLocaleDateString('fr-FR', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
+            document.getElementById('userLocation').textContent = `📍 ${Intl.DateTimeFormat().resolvedOptions().timeZone.replace(/_/g, ' ')}`;
             
-            try {
-                // Heure locale
-                const timeString = now.toLocaleTimeString('fr-FR', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: false
+            document.querySelectorAll('.current-time').forEach(el => {
+                el.textContent = now.toLocaleTimeString('fr-FR', { timeZone: el.getAttribute('data-tz'), hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            });
+            if (now.getSeconds() === 0 || document.querySelector('.current-date').textContent === "--") {
+                document.querySelectorAll('.current-date').forEach(el => {
+                    el.textContent = now.toLocaleDateString('fr-FR', { timeZone: el.getAttribute('data-tz'), weekday: 'long', day: '2-digit', month: 'long' });
                 });
-                
-                // Date locale
-                const dateString = now.toLocaleDateString('fr-FR', {
-                    weekday: 'long',
-                    day: '2-digit',
-                    month: 'long',
-                    year: 'numeric'
-                });
-                
-                document.getElementById('userTime').textContent = timeString;
-                document.getElementById('userDate').textContent = dateString;
-                
-                // Nom du fuseau horaire
-                const timezoneName = userTimezone.replace(/_/g, ' ');
-                document.getElementById('userLocation').innerHTML = `📍 ${timezoneName}`;
-            } catch(e) {
-                document.getElementById('userTime').textContent = now.toLocaleTimeString('fr-FR');
-                document.getElementById('userLocation').innerHTML = '📍 Votre position';
             }
         }
 
-        function formatTime(timezone) {
-            try {
-                const now = new Date();
-                return now.toLocaleTimeString('fr-FR', {
-                    timeZone: timezone,
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: false
-                });
-            } catch(e) {
-                return '--:--:--';
-            }
+        function getOffset(tz) {
+            try { return new Intl.DateTimeFormat('fr-FR', { timeZone: tz, timeZoneName: 'short' }).formatToParts(new Date()).find(p => p.type === 'timeZoneName').value; }
+            catch(e) { return 'UTC'; }
         }
 
-        function formatDate(timezone) {
-            try {
-                const now = new Date();
-                return now.toLocaleDateString('fr-FR', {
-                    timeZone: timezone,
-                    weekday: 'long',
-                    day: '2-digit',
-                    month: 'long'
-                });
-            } catch(e) {
-                return 'Date inconnue';
-            }
-        }
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            filteredCountries = countries.filter(c => c.country.toLowerCase().includes(val) || c.city.toLowerCase().includes(val));
+            initGrid(); updateClocks();
+        });
 
-        function getOffset(timezone) {
-            try {
-                const now = new Date();
-                const formatter = new Intl.DateTimeFormat('en-US', {
-                    timeZone: timezone,
-                    timeZoneName: 'short'
-                });
-                const parts = formatter.formatToParts(now);
-                const offsetPart = parts.find(p => p.type === 'timeZoneName');
-                return offsetPart ? offsetPart.value : 'UTC';
-            } catch(e) {
-                return 'UTC';
-            }
-        }
-
-        function renderCountries() {
-            const grid = document.getElementById('timeGrid');
-            const stats = document.getElementById('stats');
-            
-            stats.textContent = `${filteredCountries.length} pays affichés sur ${countries.length} total`;
-            
-            if (filteredCountries.length === 0) {
-                grid.innerHTML = '<div class="no-results">⚠️ Aucun pays trouvé</div>';
-                return;
-            }
-            
-            // INVERSION : Le pays (country) est maintenant affiché en premier (plus grand)
-            // La ville (city) est en second (plus petit)
-            grid.innerHTML = filteredCountries.map(country => {
-                const time = formatTime(country.timezone);
-                const date = formatDate(country.timezone);
-                const offset = getOffset(country.timezone);
-                
-                return `
-                    <div class="time-card">
-                        <div class="flag">${country.flag}</div>
-                        <div class="country-name">${country.country}</div>
-                        <div class="city-name">${country.city}</div>
-                        <div class="current-time">${time}</div>
-                        <div class="current-date">${date}</div>
-                        <div class="timezone-offset">${offset}</div>
-                    </div>
-                `;
-            }).join('');
-            
-            document.getElementById('lastUpdate').innerHTML = `🔄 Dernière mise à jour : ${new Date().toLocaleTimeString('fr-FR')}`;
-        }
-
-        function filterCountries() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            filteredCountries = countries.filter(country => 
-                country.country.toLowerCase().includes(searchTerm) || 
-                country.city.toLowerCase().includes(searchTerm)
-            );
-            renderCountries();
-        }
-
-        // Mise à jour en temps réel
-        updateUserLocalTime();
-        renderCountries();
-        
-        // Mise à jour de l'heure utilisateur et des pays chaque seconde
-        setInterval(() => {
-            updateUserLocalTime();
-            renderCountries();
-        }, 1000);
-        
-        // Recherche en direct
-        document.getElementById('searchInput').addEventListener('input', filterCountries);
+        initGrid(); updateClocks(); setInterval(updateClocks, 1000);
     </script>
 </body>
 </html>
